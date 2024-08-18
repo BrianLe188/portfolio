@@ -16,9 +16,14 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 p,
 h1,
-h3 {
+h3,
+h6 {
   color: #231f20;
 }
 
@@ -29,6 +34,6 @@ h3 {
 
   .animation-on-view {
     animation-timeline: view();
-    animation-range-end: 50%;
+    animation-range-end: 70%;
   }
 }

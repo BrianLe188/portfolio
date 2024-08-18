@@ -1,5 +1,5 @@
+import Footer from "@/components/footer";
 import FirstLook from "@/sections/home/first-look";
-import Footer from "@/sections/home/footer";
 import ProjectOverview from "@/sections/home/project-overview";
 import SummaryAboutMe from "@/sections/home/summary-about-me";
 import { Metadata } from "next";

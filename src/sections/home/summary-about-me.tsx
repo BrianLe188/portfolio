@@ -87,7 +87,12 @@ export default function SummaryAboutMe() {
             Dance to any music, Play any technology.
           </p>
           <div className="flex justify-center">
-            <img src="/signature.png" alt="my-signature" />
+            <Image
+              src="/signature.png"
+              alt="my-signature"
+              width={200}
+              height={100}
+            />
           </div>
         </div>
         <Link href={"/about"} className="text-xl font-semibold hover:underline">

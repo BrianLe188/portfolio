@@ -1,10 +1,9 @@
-import Project from "@/components/project";
 import ProjectGroup from "./components/project-group";
 import Link from "next/link";
 
 /* eslint-disable @next/next/no-img-element */
 export default function ProjectOverview() {
-  const texts = ["My", "Projects", "[1]"];
+  const texts = ["My", "Projects", "[2]"];
   return (
     <section className="py-20">
       <div className="mb-10 flex justify-between py-5">
