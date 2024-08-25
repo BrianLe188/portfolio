@@ -67,14 +67,15 @@ export default function SummaryAboutMe() {
       <div className="grid grid-cols-1 gap-x-10 gap-y-5 px-20 py-20 md:grid-cols-2 lg:gap-x-32 lg:gap-y-16">
         <div className="animation-on-view animate-fade-right animate-ease-in-out">
           <p className="text-sm !leading-8 lg:text-base">
-            Le Viet Anh is a Website/Mobile developer from Da Nang, Vietnam.
+            Le Viet Anh is a <strong>Website/Mobile developer</strong> from Da
+            Nang, Vietnam.
           </p>
           <p className="mt-3 text-sm !leading-8 lg:text-base">
-            Viet Anh majored in Software Engineering. During his time at school,
-            he searched and participated in an internship at a technology
-            company without being introduced by the school. He also actively
-            contributed to software projects of student groups. This brought him
-            a lot of practical experience from a very early age.
+            Viet Anh majored in <strong>Software Engineering</strong>. During
+            his time at school, he searched and participated in an internship at
+            a technology company without being introduced by the school. He also
+            actively contributed to software projects of student groups. This
+            brought him a lot of practical experience from a very early age.
           </p>
         </div>
         <div className="animation-on-view animate-fade-left animate-ease-in-out">

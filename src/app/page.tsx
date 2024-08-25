@@ -6,6 +6,14 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "LE VIET ANH",
+  description:
+    "Le Viet Anh is a Website/Mobile developer from Da Nang, Vietnam.",
+  other: {
+    languages: "Javascript, Typescript, Vim, Nodejs, Reactjs, Nextjs",
+    roles: "Frontend, Backend",
+    email: "anhkun123456@gmail.com, vietanhle188.dev@gmail.com",
+    phone: "+84 828030359",
+  },
 };
 
 export default function Home() {

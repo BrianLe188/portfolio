@@ -23,7 +23,7 @@ export default function LoadingScreen() {
     <main>
       <div className="relative grid h-screen w-screen place-items-center">
         {currentIndex <= 6 ? (
-          <p className="text-[150px] font-bold lg:text-[250px]">
+          <p className="animate-jump-in text-[150px] font-bold lg:text-[250px]">
             {myName[currentIndex]}
           </p>
         ) : (

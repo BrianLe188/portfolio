@@ -1,10 +1,13 @@
-import { Inter } from "next/font/google";
+import { Inter, Noto_Serif, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import LoadingContextProvider from "@/contexts/loading";
 import { twMerge } from "tailwind-merge";
 
-const inter = Inter({ subsets: ["latin"] });
+const noto = Noto_Serif({
+  subsets: ["latin"],
+  weight: ["300", "400", "700", "900"],
+});
 
 export default function RootLayout({
   children,
@@ -13,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={twMerge(inter.className, "bg-primary-yellow")}>
+      <body className={twMerge(noto.className, "bg-primary-yellow")}>
         <LoadingContextProvider>
           <Navbar />
           {children}

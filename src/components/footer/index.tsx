@@ -14,7 +14,7 @@ export default function Footer() {
           <Link href={"/contact"}>CONTACT</Link>
           <p>anhkun123456@gmail.com</p>
           <p>vietanhle188.dev@gmail.com</p>
-          <p>+84 828 030 359</p>
+          <a href="tel:+84828030359">+84 828 030 359</a>
         </div>
         <div className="col-span-2 flex flex-col lg:col-span-1">
           <Link href={"/about"}>FOLLOW ME</Link>
