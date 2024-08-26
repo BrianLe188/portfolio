@@ -12,15 +12,15 @@ export default function WorkExperience() {
       ],
       imgs: [
         {
-          path: "/me-dino.png",
+          path: "/images/dino/me-dino.png",
           alt: "Viet Anh at DINOTECH",
         },
         {
-          path: "/team-dino.jpg",
+          path: "/images/dino/team-dino.jpg",
           alt: "Dinotech Team",
         },
         {
-          path: "/travel-dino.jpg",
+          path: "/images/dino/travel-dino.jpg",
           alt: "Dinotech Travel at Ly Son Island",
         },
       ],
@@ -29,8 +29,24 @@ export default function WorkExperience() {
       company: "BIZVERSE",
       role: "NODEJS INTERNSHIP",
       time: "8/2022-11/2022",
-      desc: [],
-      imgs: [],
+      desc: [
+        "BIZVERSE is a Metaverse world combined with a complete Digital Twin for business and life. Build - Shop - Watch - Connect - Share - Play - Earn, all at Bizverse World.<br/>BIZVERSE aims to build a virtual reality environment, a complete Metaverse for business activities, where every user can easily bring their business activities to the network environment, conduct comprehensive digital transformation of business activities, and increase efficiency in a superior way with maximum support from technology.",
+        "Viet Anh had the opportunity to intern as a Node.js intern, where he was involved in developing backends for RentAll project. During this process, Viet Anh got acquainted with how Node.js works and modern API design patterns like GraphQL. He was involved in writing basic code, building and testing small APIs, and working with other team members to solve problems that arose.",
+      ],
+      imgs: [
+        {
+          path: "",
+          alt: "",
+        },
+        {
+          path: "/images/bizverse/bizverse.png",
+          alt: "Bizverse Logo",
+        },
+        {
+          path: "",
+          alt: "",
+        },
+      ],
     },
   ];
   return (

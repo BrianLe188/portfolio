@@ -2,6 +2,7 @@
 "use client";
 
 import VietAnh from "@/components/vietanh";
+import Web from "@/components/web";
 import Image from "next/image";
 import { useLayoutEffect } from "react";
 
@@ -53,6 +54,7 @@ export default function FirstLook() {
         alt="It's me"
         className="absolute bottom-0 left-1/2 h-full -translate-x-1/2 animate-fade object-cover lg:h-[130%]"
       />
+      <Web />
     </section>
   );
 }

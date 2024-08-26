@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
+import Web from "@/components/web";
 import ContactForm from "./contact-form";
 import Image from "next/image";
 import { useLayoutEffect } from "react";
@@ -42,6 +43,7 @@ export default function ContactContainer() {
           className="h-full w-full rounded-md object-cover"
         />
       </div>
+      <Web />
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import Web from "@/components/web";
 import Image from "next/image";
 
 export default function Education() {
@@ -33,6 +34,7 @@ export default function Education() {
           </p>
         </div>
       </div>
+      <Web />
     </section>
   );
 }

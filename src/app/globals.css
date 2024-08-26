@@ -21,6 +21,11 @@ html {
   font-family: "Caslon";
 }
 
+::selection {
+  background-color: #eceadf;
+  color: #2563eb var(--tw-gradient-to-position);
+}
+
 p,
 h1,
 h3,
@@ -35,6 +40,6 @@ h6 {
 
   .animation-on-view {
     animation-timeline: view();
-    animation-range-end: 70%;
+    animation-range-end: 75%;
   }
 }

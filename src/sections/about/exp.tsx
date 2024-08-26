@@ -23,7 +23,7 @@ export default function Exp({ company, role, time, desc, imgs }: ExpProps) {
       <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
         {desc[0] && (
           <p
-            className="text-sm !leading-8 lg:text-base"
+            className="animation-on-view animate-fade-right text-sm !leading-8 lg:text-base"
             dangerouslySetInnerHTML={{
               __html: desc[0],
             }}
@@ -31,27 +31,31 @@ export default function Exp({ company, role, time, desc, imgs }: ExpProps) {
         )}
         {desc[1] && (
           <p
-            className="text-sm !leading-8 md:mt-0 lg:text-base"
+            className="animation-on-view animate-fade-left text-sm !leading-8 md:mt-0 lg:text-base"
             dangerouslySetInnerHTML={{
               __html: desc[1],
             }}
           ></p>
         )}
       </div>
-      <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {imgs.map((i, index) => (
-          <Image
-            key={i.alt}
-            src={i.path}
-            alt={i.alt}
-            width={500}
-            height={500}
-            className={twMerge(
-              "col-span-1 h-full w-full rounded-lg object-cover",
-              index === 2 && "md:col-span-2 lg:col-span-1",
-            )}
-          />
-        ))}
+      <div className="animation-on-view mt-5 grid animate-flip-down grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {imgs.map((i, index) =>
+          i.path ? (
+            <Image
+              key={i.alt}
+              src={i.path}
+              alt={i.alt}
+              width={500}
+              height={500}
+              className={twMerge(
+                "col-span-1 h-full w-full rounded-lg object-cover",
+                index === 2 && "md:col-span-2 lg:col-span-1",
+              )}
+            />
+          ) : (
+            <div key={index}></div>
+          ),
+        )}
       </div>
     </div>
   );
