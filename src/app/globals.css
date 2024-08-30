@@ -43,3 +43,31 @@ h6 {
     animation-range-end: 75%;
   }
 }
+
+.input-upload {
+  position: relative;
+}
+
+.input-upload svg {
+  position: absolute;
+}
+
+.input-upload .line {
+  fill: transparent;
+}
+
+.input-upload .line.start {
+  stroke-dasharray: 260;
+  stroke-width: 3px;
+  stroke: rgba(78, 255, 13, 0.5);
+  animation: svgAnimation 2.5s linear infinite;
+}
+
+@keyframes svgAnimation {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 1000;
+  }
+}

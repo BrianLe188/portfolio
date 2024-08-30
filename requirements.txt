@@ -1,0 +1,4 @@
+flask
+flask-cors
+pypdf
+langchain_community

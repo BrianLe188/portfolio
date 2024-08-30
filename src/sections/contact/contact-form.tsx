@@ -1,6 +1,9 @@
 import Input from "@/components/input";
 import Textarea from "@/components/textarea";
+import Upload from "@/components/upload";
+import AIService from "@/services/ai";
 import { FormEvent, useState } from "react";
+import { toast } from "react-toastify";
 
 type Props = {
   id?: string;
@@ -21,11 +24,28 @@ export default function ContactForm({ id }: Props) {
     atag.click();
   };
 
-  const handleChange = (key: string, value: string) => {
+  const handleChange = (key: keyof typeof detail, value: string) => {
     setDetail((state) => ({
       ...state,
       [key]: value,
     }));
+  };
+
+  const handleChooseFile = async (e: FormEvent) => {
+    const files = (e.target as HTMLInputElement)?.files;
+    const file = files?.[0];
+
+    if (file) {
+      try {
+        const res = await AIService.summaryJD(file);
+
+        if (res) {
+          handleChange("message", String(res));
+        }
+      } catch (error: any) {
+        toast.error(error.message);
+      }
+    }
   };
 
   return (
@@ -42,8 +62,13 @@ export default function ContactForm({ id }: Props) {
           onChange={(e) => handleChange("subject", e.target.value)}
         />
         <Textarea
-          label="Your message"
+          label={
+            <div className="flex items-center gap-5 text-nowrap">
+              Your message <Upload onChoose={handleChooseFile} />
+            </div>
+          }
           rows={5}
+          value={detail.message}
           onChange={(e) => handleChange("message", e.target.value)}
         />
         <button className="font-semibold">SUBMIT</button>

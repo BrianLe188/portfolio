@@ -1,7 +1,7 @@
-import { TextareaHTMLAttributes } from "react";
+import { ReactNode, TextareaHTMLAttributes } from "react";
 
 export type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
-  label: string;
+  label: string | ReactNode;
 };
 export default function Textarea({ label, ...props }: TextareaProps) {
   return (

@@ -3,6 +3,8 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import LoadingContextProvider from "@/contexts/loading";
 import { twMerge } from "tailwind-merge";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const noto = Noto_Serif({
   subsets: ["latin"],
@@ -20,6 +22,7 @@ export default function RootLayout({
         <LoadingContextProvider>
           <Navbar />
           {children}
+          <ToastContainer />
         </LoadingContextProvider>
       </body>
     </html>
