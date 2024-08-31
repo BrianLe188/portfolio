@@ -5,7 +5,7 @@ export type UploadProps = {
   onChoose?: (e: FormEvent) => Promise<void> | void;
 };
 
-export default function Upload({ onChoose }: UploadProps) {
+export default function Upload({ onChoose, ...props }: UploadProps) {
   const [uploading, setUploading] = useState(false);
 
   const handleInputChange = async (e: FormEvent) => {
@@ -20,7 +20,7 @@ export default function Upload({ onChoose }: UploadProps) {
   };
 
   return (
-    <div className="input-upload relative">
+    <div className="input-upload relative" {...props}>
       <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
         <rect
           rx="8"

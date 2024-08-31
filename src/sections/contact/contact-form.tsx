@@ -2,14 +2,16 @@ import Input from "@/components/input";
 import Textarea from "@/components/textarea";
 import Upload from "@/components/upload";
 import AIService from "@/services/ai";
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import { toast } from "react-toastify";
+import { Tooltip } from "react-tooltip";
 
 type Props = {
   id?: string;
 };
 
 export default function ContactForm({ id }: Props) {
+  const submitButtonRef = useRef<HTMLButtonElement>(null);
   const [detail, setDetail] = useState({
     subject: "",
     email: "",
@@ -19,9 +21,13 @@ export default function ContactForm({ id }: Props) {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
+    submitButtonRef.current?.classList.add("animate-ping");
     const atag = document.createElement("a");
     atag.href = `mailto:anhkun123456@gmail.com?subject=${detail.subject}&body=${detail.message.replaceAll("\n", "%0D%0A")}`;
     atag.click();
+    setTimeout(() => {
+      submitButtonRef.current?.classList.remove("animate-ping");
+    }, 1000);
   };
 
   const handleChange = (key: keyof typeof detail, value: string) => {
@@ -64,14 +70,25 @@ export default function ContactForm({ id }: Props) {
         <Textarea
           label={
             <div className="flex items-center gap-5 text-nowrap">
-              Your message <Upload onChoose={handleChooseFile} />
+              Your message{" "}
+              <Upload
+                data-tooltip-id="upload-summary"
+                onChoose={handleChooseFile}
+              />
+              <Tooltip
+                id="upload-summary"
+                place="top"
+                content="Upload a pdf file to have AI summarize the content"
+              />
             </div>
           }
           rows={5}
           value={detail.message}
           onChange={(e) => handleChange("message", e.target.value)}
         />
-        <button className="font-semibold">SUBMIT</button>
+        <button ref={submitButtonRef} className="text-lg font-semibold">
+          SUBMIT
+        </button>
       </form>
     </section>
   );

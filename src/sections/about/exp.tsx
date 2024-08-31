@@ -7,14 +7,22 @@ export type ExpProps = {
   role: string;
   time: string;
   desc: string[];
+  link: string;
   imgs: { path: string; alt: string }[];
 };
 
-export default function Exp({ company, role, time, desc, imgs }: ExpProps) {
+export default function Exp({
+  company,
+  link,
+  role,
+  time,
+  desc,
+  imgs,
+}: ExpProps) {
   return (
     <div className="pb-20">
       <h3 className="flex flex-wrap justify-between font-semibold">
-        <Link href="https://www.facebook.com/dinotech.it" className="underline">
+        <Link href={link} className="underline">
           {company}
         </Link>
         <span>{role}</span>

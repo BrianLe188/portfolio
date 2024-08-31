@@ -5,6 +5,7 @@ export default function WorkExperience() {
   const exps: ExpProps[] = [
     {
       company: "DINOTECH",
+      link: "https://www.facebook.com/dinotech.it",
       role: "FULL-STACK WEB DEVELOPER",
       time: "2023-PRESENT",
       desc: [
@@ -28,6 +29,7 @@ export default function WorkExperience() {
     },
     {
       company: "BIZVERSE",
+      link: "https://bizverse.io",
       role: "NODEJS INTERNSHIP",
       time: "8/2022-11/2022",
       desc: [

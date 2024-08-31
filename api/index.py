@@ -1,20 +1,29 @@
-from flask import Flask, request
-from dotenv import load_dotenv
-from flask_cors import CORS
-from langchain_community.document_loaders import PyPDFLoader
 from tempfile import NamedTemporaryFile
-from langchain_core.pydantic_v1 import SecretStr
-from langchain_openai import OpenAI
-from langchain_core.prompts import ChatPromptTemplate
-from langchain.chains.combine_documents import create_stuff_documents_chain
-import os
+
+import PyPDF2
+from dotenv import load_dotenv
+from flask import Flask, request
+from flask_cors import CORS
+from transformers import BartForConditionalGeneration, BartTokenizer
+from werkzeug.datastructures import FileStorage
 
 load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
 
-openai_api_key = os.getenv("OPENAI_API_KEY")
+cache_dir = "./api/model"
+
+
+def extract_text_from_pdf(file: FileStorage):
+    with NamedTemporaryFile() as temp:
+        file.save(temp)
+        temp.seek(0)
+        reader = PyPDF2.PdfReader(temp.name)
+        text = ""
+        for page in range(len(reader.pages)):
+            text += reader.pages[page].extract_text()
+    return text
 
 
 @app.route("/api", methods=["GET"])
@@ -32,26 +41,28 @@ def jd_summary():
     if jd_file.filename == "":
         return "No selected file", 400
 
-    with NamedTemporaryFile() as temp:
-        jd_file.save(temp)
-        temp.seek(0)
-        loader = PyPDFLoader(temp.name)
-        pages = loader.load()
+    jd_content = extract_text_from_pdf(jd_file)
 
-    if openai_api_key is not None:
-        api_key = SecretStr(openai_api_key)
+    tokenizer = BartTokenizer.from_pretrained(
+        "facebook/bart-large-cnn", cache_dir=cache_dir
+    )
+    model = BartForConditionalGeneration.from_pretrained(
+        "facebook/bart-large-cnn", cache_dir=cache_dir
+    )
 
-        llm = OpenAI(api_key=api_key)
-
-        prompt = ChatPromptTemplate.from_template("Summarize this content: {context}")
-
-        chain = create_stuff_documents_chain(llm, prompt)
-
-        result = chain.invoke({"context": pages})
-
-        return result
-    else:
-        return "", 500
+    inputs = tokenizer.encode(
+        jd_content, return_tensors="pt", max_length=1024, truncation=True
+    )
+    summary_ids = model.generate(
+        inputs,
+        max_length=150,
+        min_length=40,
+        length_penalty=2.0,
+        num_beams=4,
+        early_stopping=True,
+    )
+    summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
+    return summary
 
 
 if __name__ == "__main__":

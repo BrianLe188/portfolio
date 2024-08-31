@@ -1,7 +1,6 @@
 flask
 flask-cors
-pypdf
-langchain_community
-langchain-openai
-langchain
 python-dotenv
+transformers
+torch
+pypdf2

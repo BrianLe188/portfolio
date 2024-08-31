@@ -56,11 +56,11 @@ export default function NavItem({
             memory.prev !== memory.curr &&
               memory.prev === index &&
               memory.curr < index &&
-              "animate-hr-move-left",
+              "rotate-45 animate-hr-move-left",
             memory.prev !== memory.curr &&
               memory.prev === index &&
               memory.curr > index &&
-              "animate-hr-move-right",
+              "-rotate-45 animate-hr-move-right",
           )}
         />
       </Link>

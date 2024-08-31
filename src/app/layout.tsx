@@ -1,4 +1,4 @@
-import { Inter, Noto_Serif, Libre_Baskerville } from "next/font/google";
+import { Noto_Serif } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import LoadingContextProvider from "@/contexts/loading";

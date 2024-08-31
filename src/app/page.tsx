@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     roles: "Frontend, Backend",
     email: "anhkun123456@gmail.com, vietanhle188.dev@gmail.com",
     phone: "+84 828030359",
+    name: "Le Viet Anh, Viet Anh, Việt Anh, Lê Việt Anh",
   },
 };
 

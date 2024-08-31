@@ -18,11 +18,24 @@ export default function Footer() {
         </div>
         <div className="col-span-2 flex flex-col lg:col-span-1">
           <Link href={"/about"}>FOLLOW ME</Link>
-          <Link href={"https://www.linkedin.com/in/viet-anh-le-033b29227/"}>
+          <Link
+            href={"https://www.linkedin.com/in/viet-anh-le-033b29227/"}
+            about="Le Viet Anh Linkedin Profile"
+          >
             LINKEDIN
           </Link>
-          <Link href={"https://www.facebook.com/bivietanh.dev"}>FACEBOOK</Link>
-          <Link href={"https://github.com/BrianLe188"}>GITHUB</Link>
+          <Link
+            href={"https://www.facebook.com/bivietanh.dev"}
+            about="Le Viet Anh Facebook Profile"
+          >
+            FACEBOOK
+          </Link>
+          <Link
+            href={"https://github.com/BrianLe188"}
+            about="Le Viet Anh Github Profile"
+          >
+            GITHUB
+          </Link>
         </div>
       </div>
       <VietAnh />
