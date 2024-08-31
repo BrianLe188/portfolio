@@ -44,6 +44,10 @@ h6 {
   }
 }
 
+.direction-rtl {
+  direction: rtl;
+}
+
 .input-upload {
   position: relative;
 }

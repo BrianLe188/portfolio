@@ -1,3 +1,4 @@
+import Web from "@/components/web";
 import Exp, { ExpProps } from "./exp";
 
 export default function WorkExperience() {
@@ -50,11 +51,12 @@ export default function WorkExperience() {
     },
   ];
   return (
-    <section className="py-20">
+    <section className="relative py-20">
       <h1 className="mb-10 py-5 font-semibold">WORK EXPERIENCES</h1>
       {exps.map((i) => (
         <Exp key={i.company} {...i} />
       ))}
+      <Web direction="down" />
     </section>
   );
 }

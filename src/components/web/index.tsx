@@ -1,8 +1,17 @@
-export default function Web() {
+import { twMerge } from "tailwind-merge";
+
+type Props = {
+  direction?: "up" | "down";
+};
+export default function Web({ direction = "up" }: Props) {
   return (
     <svg
       aria-hidden="true"
-      className="pointer-events-none visible absolute inset-0 h-full w-full animate-jump-in fill-blue-500/50 stroke-blue-500/50 opacity-[.30] animate-delay-500 [mask-image:linear-gradient(to_top,_#ffffffad,_transparent)] [z-index:-1]"
+      className={twMerge(
+        "pointer-events-none visible absolute inset-0 h-full w-full animate-jump-in fill-blue-500/50 stroke-blue-500/50 opacity-[.30] animate-delay-500 [mask-image:linear-gradient(to_top,_#ffffffad,_transparent)] [z-index:-1]",
+        direction === "down" &&
+          "[mask-image:linear-gradient(to_top,_transparent,_#ffffffad)]",
+      )}
     >
       <defs>
         <pattern

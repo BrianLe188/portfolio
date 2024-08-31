@@ -1,11 +1,20 @@
 from flask import Flask, request
+from dotenv import load_dotenv
 from flask_cors import CORS
 from langchain_community.document_loaders import PyPDFLoader
 from tempfile import NamedTemporaryFile
+from langchain_core.pydantic_v1 import SecretStr
+from langchain_openai import OpenAI
+from langchain_core.prompts import ChatPromptTemplate
+from langchain.chains.combine_documents import create_stuff_documents_chain
+import os
 
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
+
+openai_api_key = os.getenv("OPENAI_API_KEY")
 
 
 @app.route("/api", methods=["GET"])
@@ -27,9 +36,22 @@ def jd_summary():
         jd_file.save(temp)
         temp.seek(0)
         loader = PyPDFLoader(temp.name)
-        pages = loader.load_and_split()
+        pages = loader.load()
 
-    return str(pages[0])
+    if openai_api_key is not None:
+        api_key = SecretStr(openai_api_key)
+
+        llm = OpenAI(api_key=api_key)
+
+        prompt = ChatPromptTemplate.from_template("Summarize this content: {context}")
+
+        chain = create_stuff_documents_chain(llm, prompt)
+
+        result = chain.invoke({"context": pages})
+
+        return result
+    else:
+        return "", 500
 
 
 if __name__ == "__main__":

@@ -1,11 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 
+import Web from "@/components/web";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function SummaryAboutMe() {
   return (
-    <section>
+    <section className="relative">
       <div className="flex flex-wrap justify-between gap-2 px-20 pt-20">
         <Image
           src="/icons/code/typescript.svg"
@@ -100,6 +101,7 @@ export default function SummaryAboutMe() {
           LEARN MORE ABOUT ME
         </Link>
       </div>
+      <Web direction="down" />
     </section>
   );
 }
