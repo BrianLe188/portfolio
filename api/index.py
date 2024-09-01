@@ -51,12 +51,12 @@ def jd_summary():
     )
 
     inputs = tokenizer.encode(
-        jd_content, return_tensors="pt", max_length=1024, truncation=True
+        jd_content, return_tensors="pt", max_length=4096, truncation=True
     )
     summary_ids = model.generate(
         inputs,
-        max_length=150,
-        min_length=40,
+        max_length=1000,
+        min_length=150,
         length_penalty=2.0,
         num_beams=4,
         early_stopping=True,

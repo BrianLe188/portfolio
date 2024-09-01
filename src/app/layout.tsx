@@ -5,6 +5,7 @@ import LoadingContextProvider from "@/contexts/loading";
 import { twMerge } from "tailwind-merge";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "react-responsive-modal/styles.css";
 
 const noto = Noto_Serif({
   subsets: ["latin"],

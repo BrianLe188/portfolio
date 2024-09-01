@@ -1,10 +1,9 @@
 import Input from "@/components/input";
 import Textarea from "@/components/textarea";
 import Upload from "@/components/upload";
-import AIService from "@/services/ai";
 import { FormEvent, useRef, useState } from "react";
-import { toast } from "react-toastify";
 import { Tooltip } from "react-tooltip";
+import ModalJdSummary, { ModalJdSummaryRef } from "./modal-jd-summary";
 
 type Props = {
   id?: string;
@@ -17,6 +16,7 @@ export default function ContactForm({ id }: Props) {
     email: "",
     message: "",
   });
+  const modalSummaryRef = useRef<ModalJdSummaryRef>(null);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -42,15 +42,8 @@ export default function ContactForm({ id }: Props) {
     const file = files?.[0];
 
     if (file) {
-      try {
-        const res = await AIService.summaryJD(file);
-
-        if (res) {
-          handleChange("message", String(res));
-        }
-      } catch (error: any) {
-        toast.error(error.message);
-      }
+      modalSummaryRef.current?.onOpen();
+      await modalSummaryRef.current?.onSummary(file);
     }
   };
 
@@ -90,6 +83,10 @@ export default function ContactForm({ id }: Props) {
           SUBMIT
         </button>
       </form>
+      <ModalJdSummary
+        ref={modalSummaryRef}
+        onSubmit={(res) => handleChange("message", res)}
+      />
     </section>
   );
 }

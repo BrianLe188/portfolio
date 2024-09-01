@@ -53,6 +53,7 @@ const config: Config = {
         primary: {
           yellow: "#faf6f2",
           black: "#231f20",
+          blue: "#3b82f6",
         },
       },
     },

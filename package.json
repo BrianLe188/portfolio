@@ -17,6 +17,7 @@
     "prettier-plugin-tailwindcss": "^0.6.6",
     "react": "^18",
     "react-dom": "^18",
+    "react-responsive-modal": "^6.4.2",
     "react-toastify": "^10.0.5",
     "react-tooltip": "^5.28.0",
     "tailwind-merge": "^2.5.1",
