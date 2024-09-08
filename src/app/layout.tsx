@@ -6,6 +6,7 @@ import { twMerge } from "tailwind-merge";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "react-responsive-modal/styles.css";
+import MouseMoveContextProvider from "@/contexts/mouse-move";
 
 const noto = Noto_Serif({
   subsets: ["latin"],
@@ -21,9 +22,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={twMerge(noto.className, "bg-primary-yellow")}>
         <LoadingContextProvider>
-          <Navbar />
-          {children}
-          <ToastContainer />
+          <MouseMoveContextProvider>
+            <Navbar />
+            {children}
+            <ToastContainer />
+          </MouseMoveContextProvider>
         </LoadingContextProvider>
       </body>
     </html>

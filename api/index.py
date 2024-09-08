@@ -4,7 +4,7 @@ import PyPDF2
 from dotenv import load_dotenv
 from flask import Flask, request
 from flask_cors import CORS
-from transformers import BartForConditionalGeneration, BartTokenizer
+from transformers import GPT2Tokenizer, GPT2Model, pipeline
 from werkzeug.datastructures import FileStorage
 
 load_dotenv()
@@ -13,6 +13,9 @@ app = Flask(__name__)
 CORS(app)
 
 cache_dir = "./api/model"
+
+tokenizer = GPT2Tokenizer.from_pretrained("gpt2", cache_dir=cache_dir)
+model = GPT2Model.from_pretrained("gpt2", cache_dir=cache_dir)
 
 
 def extract_text_from_pdf(file: FileStorage):
@@ -42,13 +45,6 @@ def jd_summary():
         return "No selected file", 400
 
     jd_content = extract_text_from_pdf(jd_file)
-
-    tokenizer = BartTokenizer.from_pretrained(
-        "facebook/bart-large-cnn", cache_dir=cache_dir
-    )
-    model = BartForConditionalGeneration.from_pretrained(
-        "facebook/bart-large-cnn", cache_dir=cache_dir
-    )
 
     inputs = tokenizer.encode(
         jd_content, return_tensors="pt", max_length=4096, truncation=True

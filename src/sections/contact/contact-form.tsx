@@ -63,16 +63,15 @@ export default function ContactForm({ id }: Props) {
         <Textarea
           label={
             <div className="flex items-center gap-5 text-nowrap">
-              Your message{" "}
-              <Upload
-                data-tooltip-id="upload-summary"
-                onChoose={handleChooseFile}
-              />
-              <Tooltip
-                id="upload-summary"
-                place="top"
-                content="Upload a pdf file to have AI summarize the content"
-              />
+              Your message {/* <Upload */}
+              {/*   data-tooltip-id="upload-summary" */}
+              {/*   onChoose={handleChooseFile} */}
+              {/* /> */}
+              {/* <Tooltip */}
+              {/*   id="upload-summary" */}
+              {/*   place="top" */}
+              {/*   content="Upload a pdf file to have AI summarize the content" */}
+              {/* /> */}
             </div>
           }
           rows={5}
@@ -83,10 +82,10 @@ export default function ContactForm({ id }: Props) {
           SUBMIT
         </button>
       </form>
-      <ModalJdSummary
-        ref={modalSummaryRef}
-        onSubmit={(res) => handleChange("message", res)}
-      />
+      {/* <ModalJdSummary */}
+      {/*   ref={modalSummaryRef} */}
+      {/*   onSubmit={(res) => handleChange("message", res)} */}
+      {/* /> */}
     </section>
   );
 }

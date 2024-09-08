@@ -4,6 +4,7 @@
 import VietAnh from "@/components/vietanh";
 import Web from "@/components/web";
 import Image from "next/image";
+import Link from "next/link";
 import { useLayoutEffect } from "react";
 
 export default function FirstLook() {
@@ -35,18 +36,22 @@ export default function FirstLook() {
         id="social-container"
         className="relative z-50 flex items-center gap-5"
       >
-        <Image
-          src={"/icons/social/github.svg"}
-          alt="github"
-          width={40}
-          height={40}
-        />
-        <Image
-          src={"/icons/social/linkedin.svg"}
-          alt="linkedin"
-          width={40}
-          height={40}
-        />
+        <Link href={"https://github.com/BrianLe188"}>
+          <Image
+            src={"/icons/social/github.svg"}
+            alt="github"
+            width={40}
+            height={40}
+          />
+        </Link>
+        <Link href={"https://www.linkedin.com/in/viet-anh-le-033b29227/"}>
+          <Image
+            src={"/icons/social/linkedin.svg"}
+            alt="linkedin"
+            width={40}
+            height={40}
+          />
+        </Link>
       </div>
       <VietAnh />
       <img
