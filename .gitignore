@@ -38,6 +38,4 @@ yarn-error.log*
 next-env.d.ts
 
 # api
-/api
 /api/model
-/api/__pycache__
