@@ -29,29 +29,17 @@ export default function Project({
         <span>[{year}]</span>
       </h3>
       <div className="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-2">
-        <div className="animation-on-view flex animate-fade-right overflow-auto rounded-md animate-ease-in-out">
-          <img
-            src="/images/typera/home.png"
-            alt="typera home"
-            className="h-[100vw] w-full flex-shrink-0 object-cover object-top lg:h-[50vw]"
-          />
-          <img
-            src="/images/typera/pricing.png"
-            alt="typera pricing"
-            className="h-[100vw] w-full flex-shrink-0 object-cover object-top lg:h-[50vw]"
-          />
-          <img
-            src="/images/typera/content.png"
-            alt="typera content"
-            className="h-[100vw] w-full flex-shrink-0 object-cover object-top lg:h-[50vw]"
-          />
-          <img
-            src="/images/typera/typeraai.png"
-            alt="typera typeraai"
-            className="h-[100vw] w-full flex-shrink-0 object-cover object-top lg:h-[50vw]"
-          />
+        <div className="animation-on-view flex animate-fade-right overflow-auto rounded-md animate-delay-100 animate-ease-in-out">
+          {images.map((path, index) => (
+            <img
+              key={index}
+              src={path}
+              alt="typera home"
+              className="h-[100vw] w-full flex-shrink-0 object-cover object-top lg:h-[50vw]"
+            />
+          ))}
         </div>
-        <div className="animation-on-view flex animate-fade-left flex-col justify-between animate-ease-in-out">
+        <div className="animation-on-view flex animate-fade-left flex-col justify-between animate-delay-100 animate-ease-in-out">
           <p className="text-sm leading-8">{description}</p>
           <div>
             <CustomerInfo title="Client" value={client} />

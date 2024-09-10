@@ -57,7 +57,7 @@ export default function FirstLook() {
       <img
         src="/me.png"
         alt="It's me"
-        className="absolute bottom-0 left-1/2 h-full -translate-x-1/2 animate-fade object-cover lg:h-[130%]"
+        className="absolute bottom-0 left-1/2 h-full -translate-x-1/2 animate-fade object-cover animate-delay-200 lg:h-[130%]"
       />
       <Web />
     </section>

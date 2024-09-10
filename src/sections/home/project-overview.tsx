@@ -16,7 +16,7 @@ export default function ProjectOverview() {
       <ProjectGroup />
       <Link
         href={"/projects"}
-        className="text-xl font-semibold hover:underline"
+        className="text-center text-xl font-semibold hover:underline md:text-left"
       >
         VIEW MORE PROJECTS
       </Link>

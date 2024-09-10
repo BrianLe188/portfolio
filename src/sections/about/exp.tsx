@@ -31,7 +31,7 @@ export default function Exp({
       <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
         {desc[0] && (
           <p
-            className="animation-on-view animate-fade-right text-sm !leading-8 lg:text-base"
+            className="animation-on-view animate-fade-right text-sm !leading-8 animate-delay-100 lg:text-base"
             dangerouslySetInnerHTML={{
               __html: desc[0],
             }}
@@ -39,14 +39,14 @@ export default function Exp({
         )}
         {desc[1] && (
           <p
-            className="animation-on-view animate-fade-left text-sm !leading-8 md:mt-0 lg:text-base"
+            className="animation-on-view animate-fade-left text-sm !leading-8 animate-delay-100 md:mt-0 lg:text-base"
             dangerouslySetInnerHTML={{
               __html: desc[1],
             }}
           ></p>
         )}
       </div>
-      <div className="animation-on-view mt-5 grid animate-flip-down grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <div className="animation-on-view mt-5 grid animate-flip-down grid-cols-1 gap-5 animate-delay-100 md:grid-cols-2 lg:grid-cols-3">
         {imgs.map((i, index) =>
           i.path ? (
             <Image

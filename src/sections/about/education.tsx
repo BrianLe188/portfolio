@@ -1,12 +1,13 @@
 import Web from "@/components/web";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Education() {
   return (
     <section className="pb-20 pt-10">
       <h1 className="flex flex-wrap justify-between font-semibold">
         <span>EDUCATION</span>
-        <span>DUY TAN UNIVERSITY</span>
+        <Link href={"https://duytan.edu.vn/"}>DUY TAN UNIVERSITY</Link>
         <span>2019-2024</span>
       </h1>
       <div className="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-2">
@@ -15,9 +16,9 @@ export default function Education() {
           alt="Viet Anh graduate"
           width={500}
           height={500}
-          className="h-auto w-full animate-fade-right rounded-lg"
+          className="h-auto w-full animate-fade-right rounded-lg animate-delay-300"
         />
-        <div className="animate-fade-left">
+        <div className="animate-fade-left animate-delay-300">
           <p className="text-sm !leading-8 lg:text-base">
             Viet Anh majored in Software Engineering. During his time at school,
             he searched and participated in an internship at a technology
