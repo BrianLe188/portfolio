@@ -54,10 +54,12 @@ export default function FirstLook() {
         </Link>
       </div>
       <VietAnh />
-      <img
+      <Image
         src="/me.png"
         alt="It's me"
         className="absolute bottom-0 left-1/2 h-full -translate-x-1/2 animate-fade object-cover animate-delay-200 lg:h-[130%]"
+        width={1000}
+        height={1000}
       />
       <Web />
     </section>

@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function ProjectOverview() {
   const texts = ["My", "Projects", "[2]"];
   return (
-    <section className="py-20">
+    <section className="p-5 md:py-20">
       <div className="mb-10 flex justify-between py-5">
         {texts.map((i) => (
           <p key={i} className="font-semibold">

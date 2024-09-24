@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Education() {
   return (
-    <section className="pb-20 pt-10">
+    <section className="p-0 md:pb-20 md:pt-10">
       <h1 className="flex flex-wrap justify-between font-semibold">
         <span>EDUCATION</span>
         <Link href={"https://duytan.edu.vn/"}>DUY TAN UNIVERSITY</Link>

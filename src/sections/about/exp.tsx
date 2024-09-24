@@ -20,7 +20,7 @@ export default function Exp({
   imgs,
 }: ExpProps) {
   return (
-    <div className="pb-20">
+    <div className="pb-5 md:pb-20">
       <h3 className="flex flex-wrap justify-between font-semibold">
         <Link href={link} className="underline">
           {company}

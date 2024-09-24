@@ -3,8 +3,8 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="pt-20">
-      <div className="grid grid-cols-2 justify-between text-center font-semibold lg:grid-cols-3">
+    <footer className="pt-5 md:pt-20">
+      <div className="grid grid-cols-2 justify-between text-center text-xs font-semibold md:text-base lg:grid-cols-3">
         <div>
           <Link href={"/about"}>ABOUT ME</Link>
           <p>FRONTEND</p>

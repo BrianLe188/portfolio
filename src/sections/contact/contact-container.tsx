@@ -37,10 +37,12 @@ export default function ContactContainer() {
           height={100}
           className="absolute -top-10 right-0"
         />
-        <img
+        <Image
           src="/me2.jpg"
           alt="me2"
           className="h-full w-full rounded-md object-cover"
+          width={500}
+          height={500}
         />
       </div>
       <Web />
